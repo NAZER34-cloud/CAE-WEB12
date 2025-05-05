@@ -1,0 +1,465 @@
+/* --- الإعدادات العامة والخطوط --- */
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap'); /* استيراد خط Cairo */
+
+:root {
+    /* الألوان الافتراضية (الوضع النهاري) */
+    --primary-color: #0056b3; /* أزرق أساسي للخلفيات والعناوين */
+    --secondary-color: #007bff; /* أزرق أفتح للحدود وتأثيرات المرور */
+    --light-bg: #f8f9fa; /* خلفية فاتحة جداً للصفحة */
+    --dark-text: #343a40; /* نص غامق للمحتوى الرئيسي */
+    --light-text: #6c757d; /* نص فاتح (للعناصر النائبة والنصوص الثانوية) */
+    --border-color: #dee2e6; /* لون الحدود العامة */
+    --hover-bg: #eef5ff; /* خلفية عند المرور على العناصر */
+    --section-bg: #ffffff; /* خلفية الأقسام البيضاء */
+    --icon-color: #007bff; /* لون الأيقونات الأساسية */
+    --placeholder-border: #ced4da; /* لون حدود العناصر النائبة المتقطعة */
+    --header-bg: var(--primary-color); /* خلفية الهيدر تأخذ اللون الأساسي */
+    --header-text: #ffffff; /* لون نص الهيدر أبيض */
+    --announcement-text-color: #ffffff; /* لون نص شريط الإعلانات (يظهر على خلفية الهيدر الزرقاء) */
+    --footer-bg: var(--dark-text); /* خلفية التذييل تأخذ لون النص الغامق */
+    --footer-text: #e0e0e0; /* لون نص التذييل فاتح */
+}
+
+/* تعريف الألوان للوضع الليلي */
+.dark-mode {
+    --primary-color: #5a99f0; /* لون أزرق فاتح للعناوين في الوضع الداكن */
+    --secondary-color: #3f7ec7; /* أزرق متوسط للحدود */
+    --light-bg: #121212; /* خلفية داكنة جداً للصفحة */
+    --dark-text: #e0e0e0; /* نص فاتح جداً للمحتوى الرئيسي */
+    --light-text: #bdc3c7; /* نص فاتح (للعناصر النائبة والنصوص الثانوية في الوضع الداكن) */
+    --border-color: #444; /* حدود أغمق */
+    --hover-bg: #34495e; /* خلفية عند المرور (داكنة) */
+    --section-bg: #1e1e1e; /* خلفية الأقسام (داكنة) */
+    --icon-color: #bb86fc; /* لون أيقونات مميز للوضع الليلي (بنفسجي فاتح) */
+    --placeholder-border: #555; /* لون حدود العناصر النائبة (داكنة) */
+    --header-bg: #1a242f; /* خلفية الهيدر (داكنة جداً) */
+    --header-text: #ffffff; /* لون نص الهيدر أبيض */
+    --announcement-text-color: #bb86fc; /* لون نص شريط الإعلانات (يبرز في الوضع الليلي) */
+    --footer-bg: #1a242f; /* خلفية التذييل (داكنة جداً) */
+    --footer-text: #bdc3c7; /* لون نص التذييل فاتح */
+}
+
+
+body {
+    font-family: 'Cairo', sans-serif; /* استخدام خط Cairo */
+    margin: 0;
+    padding: 0;
+    background-color: var(--light-bg); /* استخدام متغير الخلفية */
+    color: var(--dark-text); /* استخدام متغير لون النص الرئيسي */
+    line-height: 1.7; /* زيادة تباعد الأسطر */
+    direction: rtl; /* ضمان الاتجاه من اليمين لليسار */
+    transition: background-color 0.3s ease, color 0.3s ease; /* انتقال سلس بين الأوضاع */
+}
+
+/* --- الحاوية الرئيسية --- */
+.container {
+    max-width: 1100px; /* عرض أكبر قليلاً */
+    margin: 0 auto; /* توسيط أفقي */
+    padding: 0 20px; /* هوامش جانبية افتراضية */
+}
+
+/* --- الهيدر (العنوان العلوي) --- */
+.site-header {
+    background-color: var(--header-bg); /* استخدام متغير خلفية الهيدر */
+    color: var(--header-text); /* استخدام متغير لون نص الهيدر */
+    padding: 25px 0; /* حشو علوي وسفلي (يتم تعديله في .container داخله) */
+    margin-bottom: 30px;
+    text-align: center; /* توسيط محتوى الهيدر */
+    border-bottom: 5px solid var(--secondary-color); /* استخدام متغير لون الحدود */
+    position: relative; /* للسماح بوضع زر الوضع الليلي مطلقًا */
+}
+
+/* تنسيق الحاوية الداخلية للهيدر */
+.site-header .container {
+    display: flex;
+    flex-direction: column; /* ترتيب العناصر عمودياً */
+    align-items: center; /* محاذاة العناصر في الوسط */
+    padding: 0 20px; /* الحشو الداخلي للحاوية */
+}
+
+
+/* تنسيق الجزء الرئيسي من الهيدر (العنوان والزر) */
+.site-header .header-main {
+    display: flex;
+    justify-content: center; /* توسيط المحتوى */
+    align-items: center;
+    width: 100%; /* ليأخذ عرض الـ container */
+    flex-wrap: wrap; /* للسماح بالانتقال إلى سطر جديد على الشاشات الصغيرة */
+    padding-bottom: 15px; /* مسافة تحت العنوان قبل الشريط الإعلاني */
+}
+
+.site-header h1 {
+    margin: 0; /* إزالة الهامش الافتراضي */
+    font-size: 2.2em; /* حجم أكبر للعنوان */
+    flex-grow: 1; /* للسماح له بأخذ المساحة المتاحة */
+    text-align: center; /* توسيط العنوان */
+}
+
+.site-header h1 .fa-graduation-cap {
+    margin-left: 10px; /* مسافة يسار أيقونة الهيدر */
+    color: var(--header-text); /* الأيقونة بنفس لون نص الهيدر */
+}
+
+.site-header .subtitle {
+    margin: 0; /* إزالة الهامش الافتراضي */
+    font-size: 1.1em;
+    color: var(--header-text); /* استخدام متغير لون نص الهيدر */
+    font-weight: 400;
+    margin-left: 20px; /* مسافة بين العنوان الفرعي والزر على الشاشات الكبيرة */
+}
+
+/* زر تفعيل الوضع الليلي */
+.dark-mode-toggle {
+    background-color: rgba(255, 255, 255, 0.1); /* خلفية شفافة قليلاً */
+    border: 1px solid rgba(255, 255, 255, 0.3); /* حدود شفافة قليلاً */
+    color: var(--header-text); /* لون نص الهيدر */
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    margin-top: 5px; /* مسافة فوق الزر إذا انتقل لسطر جديد */
+}
+
+.dark-mode-toggle:hover {
+    background-color: rgba(255, 255, 255, 0.3); /* زيادة شفافية الخلفية عند المرور */
+    border-color: rgba(255, 255, 255, 0.6); /* حدود أكثر وضوحاً عند المرور */
+}
+
+/* --- شريط الإعلانات المتحرك (تحت العنوان في الهيدر) --- */
+/* الحاوية التي تحتوي الشريط المتحرك وتضمن عدم خروج النص منها */
+.announcement-bar-container {
+    width: 100%; /* يأخذ عرض الهيدر container */
+    overflow: hidden; /* إخفاء أي محتوى يخرج من هذه الحاوية */
+    background-color: transparent; /* خلفية شفافة */
+    color: var(--announcement-text-color); /* استخدام متغير لون نص الشريط */
+    padding: 10px 0; /* حشو علوي وسفلي داخل الهيدر */
+    border-top: 1px solid rgba(255, 255, 255, 0.2); /* خط فاصل خفيف تحت كتلة العنوان */
+}
+
+.announcement-bar {
+    /* هذا العنصر هو الذي يحتوي النص ويتم تحريكه */
+    display: inline-block; /* ضروري للحركة */
+    white-space: nowrap; /* منع التفاف النص */
+    padding-right: 100%; /* يبدأ النص خارج الحاوية تمامًا على اليمين */
+    /* animation: marquee [مدة] linear infinite; */
+    /* المدة يتم ضبطها في @keyframes لضمان ظهوره */
+    animation: marquee 25s linear infinite; /* اسم الحركة، المدة، نوع الحركة، تكرار لا نهائي */
+    /* زيادة المدة قليلاً لإبطاء الحركة */
+}
+
+.announcement-text {
+    /* النص الفعلي داخل الشريط */
+    color: inherit; /* يرث اللون من الحاوية announcement-bar-container */
+    font-size: 1em;
+}
+
+
+/* تعريف حركة الشريط الإعلاني (من اليمين إلى اليسار) */
+@keyframes marquee {
+    0% { transform: translateX(0); } /* يبدأ من الموضع الأصلي (أقصى اليمين بسبب padding-right) */
+    100% { transform: translateX(-100%); } /* يتحرك إلى اليسار بمسافة تعادل عرضه */
+}
+/* ملاحظة: في الاتجاه RTL، transform: translateX(0) هو اليمين و transform: translateX(-100%) هو اليسار */
+
+
+/* --- المحتوى الرئيسي --- */
+main.container {
+    padding-top: 20px;
+    padding-bottom: 40px;
+}
+
+/* --- قسم البحث --- */
+.search-section {
+    background-color: var(--section-bg); /* استخدام متغير خلفية الأقسام */
+    padding: 25px;
+    margin-bottom: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease; /* انتقال سلس */
+}
+
+.search-section h2 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    color: var(--primary-color); /* استخدام متغير اللون الأساسي */
+    font-size: 1.5em;
+}
+
+.search-section h2 .fa-search {
+    margin-left: 8px;
+    color: var(--primary-color); /* أيقونة البحث بلون العنوان */
+}
+
+#searchInput {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid var(--border-color); /* استخدام متغير لون الحدود */
+    border-radius: 5px;
+    font-size: 1em;
+    box-sizing: border-box; /* لضمان الحجم الصحيح مع padding */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, color 0.3s ease; /* انتقال سلس */
+    background-color: var(--section-bg); /* خلفية صندوق البحث */
+    color: var(--dark-text); /* لون نص صندوق البحث */
+}
+
+#searchInput::placeholder {
+    color: var(--light-text); /* لون النص النائب */
+}
+
+#searchInput:focus {
+    border-color: var(--secondary-color); /* استخدام متغير اللون الثانوي */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.25); /* ظل التركيز */
+    outline: none;
+}
+
+/* --- أقسام المحاضرات (تنسيق مشترك) --- */
+.lecture-category {
+    background-color: var(--section-bg); /* استخدام متغير خلفية الأقسام */
+    padding: 20px 25px;
+    margin-bottom: 25px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease; /* انتقال سلس */
+}
+
+.lecture-category h2 {
+    margin: 0 0 20px 0;
+    color: var(--primary-color); /* استخدام متغير اللون الأساسي */
+    font-size: 1.6em;
+    border-bottom: 2px solid var(--border-color); /* استخدام متغير لون الحدود */
+    padding-bottom: 10px;
+    cursor: pointer; /* تغيير شكل المؤشر للإشارة للقابلية للضغط */
+    display: flex; /* لترتيب الأيقونة بجانب النص */
+    justify-content: space-between; /* لدفع الأيقونة لليسار */
+    align-items: center; /* محاذاة عمودية */
+    transition: color 0.3s ease, border-color 0.3s ease; /* انتقال سلس */
+}
+
+.lecture-category h2:hover {
+    color: var(--secondary-color); /* تغيير اللون عند المرور */
+}
+
+.lecture-category h2 i:not(.toggle-icon) {
+    margin-left: 10px; /* مسافة يسار الأيقونة الرئيسية (باستثناء أيقونة السهم) */
+    color: var(--icon-color); /* استخدام متغير لون الأيقونات */
+}
+
+.lecture-category h2 .toggle-icon {
+    margin-left: 0; /* إزالة المسافة الافتراضية */
+    transition: transform 0.3s ease; /* إضافة تأثير حركة للأيقونة */
+    color: var(--light-text); /* لون سهم الطي */
+}
+
+.lecture-category h2.collapsed .toggle-icon {
+    transform: rotate(-90deg); /* تدوير السهم عند الطي */
+}
+
+/* --- قائمة المحاضرات (تنسيق مشترك) --- */
+.lecture-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    max-height: 1000px; /* ارتفاع كبير للسماح بالظهور */
+    overflow: hidden; /* إخفاء المحتوى الزائد */
+    transition: max-height 0.5s ease-in-out; /* تأثير الحركة عند الفتح/الطي */
+}
+
+.lecture-list.hidden {
+    max-height: 0; /* إخفاء القائمة عند الطي */
+}
+
+.lecture-list li {
+    margin-bottom: 12px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; /* انتقال سلس */
+    border: 1px solid var(--border-color); /* استخدام متغير لون الحدود */
+    background-color: var(--section-bg); /* خلفية عناصر القائمة */
+}
+
+.lecture-list li:hover {
+    background-color: var(--hover-bg); /* استخدام متغير خلفية المرور */
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+}
+
+.lecture-list li a {
+    display: flex; /* استخدام flex لمحاذاة الأيقونة والنص */
+    align-items: center; /* محاذاة عمودية */
+    padding: 12px 15px;
+    text-decoration: none;
+    color: var(--dark-text); /* استخدام متغير لون النص */
+    font-weight: 600; /* وزن أثقل قليلاً */
+    transition: color 0.3s ease; /* انتقال سلس */
+}
+
+.lecture-list li a:hover {
+    color: var(--primary-color); /* تغيير لون النص عند المرور */
+}
+
+.lecture-list li a .icon {
+    color: var(--icon-color); /* استخدام متغير لون الأيقونات */
+    margin-left: 12px; /* مسافة بين الأيقونة والنص */
+    font-size: 1.1em;
+    width: 20px; /* تحديد عرض للأيقونة لمحاذاة أفضل */
+    text-align: center;
+}
+
+/* --- العناصر النائبة (Placeholders) --- */
+.lecture-list li.placeholder {
+    background-color: var(--light-bg); /* استخدام متغير الخلفية الفاتحة للعنصر النائب */
+    border: 1px dashed var(--placeholder-border); /* استخدام متغير لون الحدود المتقطعة */
+    color: var(--light-text); /* استخدام متغير لون النص الفاتح */
+    font-style: italic;
+    padding: 10px 15px;
+    text-align: center;
+    cursor: default; /* تغيير شكل المؤشر للعناصر النائبة غير القابلة للنقر */
+}
+
+.lecture-list li.placeholder a {
+    color: var(--light-text); /* استخدام متغير لون النص الفاتح للرابط النائب */
+    font-weight: 400;
+    justify-content: center; /* توسيط محتوى الرابط النائب */
+}
+
+.lecture-list li.placeholder a:hover {
+    color: var(--dark-text); /* تغيير لون النص عند المرور للعنصر النائب */
+}
+
+/* --- التذييل (الجزء السفلي) --- */
+.site-footer {
+    background-color: var(--footer-bg); /* استخدام متغير خلفية التذييل */
+    color: var(--footer-text); /* استخدام متغير لون نص التذييل */
+    padding: 25px 0;
+    margin-top: 40px;
+    text-align: center;
+    font-size: 0.9em;
+    border-top: 5px solid var(--secondary-color); /* استخدام متغير لون الحدود */
+    transition: background-color 0.3s ease, color 0.3s ease; /* انتقال سلس */
+}
+
+.site-footer p {
+    margin: 5px 0;
+}
+
+/* --- الاستجابة للشاشات الصغيرة (Responsive Design) --- */
+@media (max-width: 768px) {
+    .container {
+        padding: 0 15px; /* تقليل الهوامش الجانبية */
+    }
+
+     .site-header .container {
+        padding: 15px 15px 10px 15px; /* تقليل حشو الهيدر الداخلي */
+     }
+
+     .site-header .header-main {
+         flex-direction: column; /* ترتيب العناصر عمودياً في الجزء العلوي من الهيدر */
+         padding-bottom: 10px; /* تقليل المسافة تحت العنوان الرئيسي */
+         align-items: flex-start; /* محاذاة لليمين (في RTL) */
+     }
+
+    .site-header h1 {
+        font-size: 1.8em; /* تصغير حجم العنوان الرئيسي */
+        flex-basis: 100%; /* ليأخذ كامل العرض */
+        margin-bottom: 5px;
+        text-align: right; /* محاذاة لليمين في RTL */
+    }
+     .site-header h1 .fa-graduation-cap {
+         margin-left: 5px; /* تقليل المسافة يسار الأيقونة */
+     }
+
+     .site-header .subtitle {
+        font-size: 1em;
+         flex-basis: 100%; /* ليأخذ كامل العرض */
+         margin-left: 0; /* إزالة الهامش */
+         margin-bottom: 10px;
+         text-align: right; /* محاذاة لليمين في RTL */
+     }
+
+    /* ضبط موضع زر الوضع الليلي على الشاشات الصغيرة */
+    .dark-mode-toggle {
+         margin-top: 0; /* إزالة الهامش العلوي */
+         position: absolute; /* وضع مطلق */
+         top: 15px; /* مسافة من الأعلى */
+         left: 15px; /* مسافة من اليسار (في اتجاه RTL) */
+         padding: 5px 8px; /* تصغير حشو الزر */
+         font-size: 0.9em; /* تصغير حجم الخط */
+    }
+
+
+    .announcement-bar-container {
+         padding: 8px 0; /* تقليل حشو الشريط الإعلاني */
+         margin-top: 10px; /* تقليل المسافة من الأعلى */
+         border-top: 1px solid rgba(255, 255, 255, 0.2); /* خط فاصل خفيف */
+    }
+     .announcement-bar {
+          animation-duration: 18s; /* تسريع الحركة قليلاً على الشاشات الصغيرة */
+          padding-right: 100%; /* يبدأ خارج الشاشة */
+     }
+
+
+    .search-section h2, .lecture-category h2 {
+        font-size: 1.3em; /* تصغير عناوين الأقسام */
+    }
+    .lecture-list li a, .lecture-list li.placeholder {
+        padding: 10px 12px; /* تقليل الحشو الداخلي */
+        font-size: 0.95em;
+    }
+    .lecture-list li a .icon {
+        margin-left: 8px; /* تقليل المسافة يسار الأيقونة */
+    }
+}
+
+@media (max-width: 480px) {
+    .site-header h1 {
+        font-size: 1.6em;
+    }
+     .site-header .subtitle {
+         font-size: 0.9em;
+     }
+    .lecture-category h2 {
+        font-size: 1.2em;
+    }
+    #searchInput {
+        font-size: 0.9em;
+    }
+     .dark-mode-toggle {
+         top: 10px; /* ضبط الموضع أكثر للشاشات الأصغر */
+         left: 10px;
+         font-size: 0.8em; /* تصغير أكثر */
+         padding: 4px 6px; /* تصغير الحشو */
+     }
+     .announcement-bar {
+         animation-duration: 12s; /* تسريع الحركة أكثر للشاشات الأصغر */
+     }
+}
+
+/* -------------------------------------------- */
+/* تعليقات إضافية لتوضيح الأقسام الرئيسية في CSS */
+/* -------------------------------------------- */
+/* نهاية قسم الإعدادات العامة والمتغيرات */
+/* -------------------------------------------- */
+/* نهاية قسم الهيدر وشريط الإعلانات وزر الوضع الليلي */
+/* -------------------------------------------- */
+/* نهاية قسم المحتوى الرئيسي والحاوية */
+/* -------------------------------------------- */
+/* نهاية قسم البحث */
+/* -------------------------------------------- */
+/* بداية تنسيقات أقسام المحاضرات */
+/* هذه التنسيقات مشتركة بين جميع أقسام .lecture-category */
+/* نهاية تنسيقات أقسام المحاضرات */
+/* -------------------------------------------- */
+/* بداية تنسيقات قائمة المحاضرات */
+/* هذه التنسيقات مشتركة بين جميع قوائم .lecture-list */
+/* نهاية تنسيقات قائمة المحاضرات */
+/* -------------------------------------------- */
+/* بداية تنسيقات العناصر النائبة */
+/* نهاية تنسيقات العناصر النائبة */
+/* -------------------------------------------- */
+/* بداية تنسيقات التذييل */
+/* نهاية تنسيقات التذييل */
+/* -------------------------------------------- */
+/* بداية تنسيقات الاستجابة للشاشات (Media Queries) */
+/* نهاية تنسيقات الاستجابة للشاشات */
+/* -------------------------------------------- */
+/* --- نهاية ملف CSS --- */
+/* -------------------------------------------- */

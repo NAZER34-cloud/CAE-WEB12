@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مكتبة محاضرات CAE الشاملة</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="container">
+            <div class="header-main">
+                <h1><i class="fas fa-graduation-cap"></i> مكتبة محاضرات CAE</h1>
+                <p class="subtitle">موردك الشامل للمحاضرات الأكاديمية</p>
+                 <button id="darkModeToggle" class="dark-mode-toggle" aria-label="تبديل الوضع الليلي">
+                    <i class="fas fa-moon"></i> </button>
+            </div>
+
+            <div class="announcement-bar-container">
+                <div class="announcement-bar">
+                     <span class="announcement-text">
+                        🔔 خبر عاجل: تم إضافة مجموعة جديدة من محاضرات الفيزياء! تحقق منها الآن! &nbsp; | &nbsp; ✨ ترقبوا قريباً: تحديثات ومحتوى جديد باستمرار! &nbsp; | &nbsp; 📢 هل لديك اقتراح لمحاضرة؟ تواصل معنا عبر البريد الإلكتروني أو وسائل التواصل الاجتماعي! &nbsp; | &nbsp; 📚 تصفح آلاف المحاضرات في مختلف التخصصات مجاناً!
+                    </span>
+                    </div>
+            </div>
+            </div>
+    </header>
+
+    <main class="container">
+        <section class="search-section">
+            <h2><i class="fas fa-search"></i> البحث عن محاضرة</h2>
+            <input type="text" id="searchInput" aria-label="صندوق البحث عن المحاضرات" placeholder="اكتب اسم المحاضرة للبحث..." onkeyup="filterLectures()">
+        </section>
+        <section id="written-lectures-section" class="lecture-category">
+            <h2 class="section-toggle" onclick="toggleSection('written-content')">
+                <i class="fas fa-book"></i> محاضرات كتابية <i class="fas fa-chevron-down toggle-icon"></i>
+            </h2>
+            <ul id="written-content" class="lecture-list">
+                <li>
+                    <a href="https://www.dropbox.com/scl/fo/lnk4o3d0z6x0pd9azw6a6/ANf9T-YgoWXTeURb4wEah6Q?rlkey=y0t5xvptitvy0y1j51d6yt1ax&st=c0lg2iwg&dl=0" target="_blank" rel="noopener noreferrer">
+                        <i class="fas fa-file-alt icon"></i>محاضرات تحليل كتابية
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.dropbox.com/scl/fo/q4ftlrjmsb3734j6nt01u/AGaaAsVQb7JbnOMIKUXctQY?rlkey=dgvy3ezv6726k2golwh6qdpjf&st=e3es93qu&dl=0" target="_blank" rel="noopener noreferrer">
+                        <i class="fas fa-file-alt icon"></i>محاضرات اسس كتابية
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.dropbox.com/scl/fo/ty65fp11zhvcpdfv8w9iy/AM84h_30vAbdrgN2BVitTS0?rlkey=erpwsvt96zyw8op1243vn4v5y&st=lr857825&dl=0" target="_blank" rel="noopener noreferrer">
+                        <i class="fas fa-file-alt icon"></i>محاضرات فيزياء كتابي
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.dropbox.com/scl/fo/j0ig3toxs6qyof63atfo3/AKB4L9r9O1sjMC7xhaqsZeg?rlkey=yotqzqd2dtufpuoghjx2p4tsc&st=7v61on7v&dl=0" target="_blank" rel="noopener noreferrer">
+                        <i class="fas fa-code icon"></i>محاضرات برمجة كتابية
+                    </a>
+                </li>
+                <li class="placeholder">
+                    <a href="#" onclick="event.preventDefault();"><i class="fas fa-plus-circle icon"></i>محاضرة كتابية إضافية (مثال)</a>
+                </li>
+                 <li class="placeholder"></li>
+                <li class="placeholder"></li>
+                <li class="placeholder"></li>
+            </ul>
+        </section>
+        <section id="audio-lectures-section" class="lecture-category">
+            <h2 class="section-toggle" onclick="toggleSection('audio-content')">
+                <i class="fas fa-headphones-alt"></i> محاضرات صوتية <i class="fas fa-chevron-down toggle-icon"></i>
+            </h2>
+            <ul id="audio-content" class="lecture-list">
+                <li>
+                    <a href="https://www.dropbox.com/scl/fo/ju9fbhb4lz6vxyu4gpbgq/AOQ5IwkY7EBAQGMlGOg5Fbs?rlkey=qp3jmplq6zcxuv33gzbashju5&st=ahvjem7c&dl=0" target="_blank" rel="noopener noreferrer">
+                        <i class="fas fa-volume-up icon"></i>محاضرات اسس صوتي
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.dropbox.com/scl/fo/cysindgdbecp0ubnlxdhm/ANlN5KRD8DLzTmSFZZw1aMg?rlkey=4fm61qrjjsn7eat0h0195d7e7&st=40qdwpsk&dl=0" target="_blank" rel="noopener noreferrer">
+                        <i class="fas fa-volume-up icon"></i>محاضرات تحليل ٢ صوتي
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.dropbox.com/scl/fo/kpiygelxmmvgpk72y3nx0/AFmsaUUFiRsYInPLw6VC2C4?rlkey=nb8qceaemiulekjrvqn2m6c00&st=5dq8l0z6&dl=0" target="_blank" rel="noopener noreferrer">
+                        <i class="fas fa-volume-up icon"></i>محاضرات فيزياء ٢ صوتي
+                    </a>
+                </li>
+                <li class="placeholder">
+                    <a href="#" onclick="event.preventDefault();"><i class="fas fa-plus-circle icon"></i>محاضرة صوتية إضافية (مثال)</a>
+                </li>
+                 <li class="placeholder"></li>
+                <li class="placeholder"></li>
+                <li class="placeholder"></li>
+            </ul>
+        </section>
+        </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; <span id="currentYear"></span> مكتبة محاضرات CAE. جميع الحقوق محفوظة.</p>
+            <p>آخر تحديث للصفحة: <span id="lastUpdated"></span></p>
+        </div>
+    </footer>
+    <script src="script.js" defer></script>
+
+</body>
+</html>

@@ -65,7 +65,7 @@ function updateFooterInfo() {
 
     // تعيين تاريخ آخر تحديث (يمكن تحديث هذا التاريخ يدوياً عند تغيير المحتوى)
     const lastUpdatedElement = document.getElementById('lastUpdated');
-    const lastUpdateDate = "5 مايو 2025"; // <-- قم بتغيير هذا التاريخ يدوياً عند التحديث
+    const lastUpdateDate = "7 مايو 2025"; // <-- قم بتغيير هذا التاريخ يدوياً عند التحديث
     if (lastUpdatedElement) {
         lastUpdatedElement.textContent = lastUpdateDate;
     } else {
